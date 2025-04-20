@@ -1,0 +1,14 @@
+---
+- name: Verify Docker installation
+  hosts: localhost
+  tasks:
+    - name: Check Docker service status
+      service:
+        name: docker
+        state: started
+        enabled: true
+
+    - name: Pull PHP application image
+      docker_image:
+        name: devopsedu/webapp
+        source: pull
